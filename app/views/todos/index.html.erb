@@ -1,2 +1,23 @@
-<h1>Todos#index</h1>
-<p>Find me in app/views/todos/index.html.erb</p>
+<h1 align=center>Mis tareas diciocheras</h1>
+<div class="row row-cols-1 row-cols-md-3">
+    <% @todos.each_slice(3) do |three_todo|%>
+        <div class="col mb-4">
+            <% three_todo.each do |todo| %>
+            <div class="card mb-4">
+                <%= image_tag todo.task.picture, class: "card-img-top, style:'filter:grayscale(100%)'" %>
+                <div class="card-body">
+                   <h5> <%= link_to todo.task.name, todos_path(todo), class:"card-title" %></h5>
+                   <%= puts todo.completed %>
+                   <%= link_to 'Detalle', todo_show_path(todo) %>
+                    <% if todo.completed %>
+                        <%= link_to 'Completo', todo_update_path(todo), method: :patch, class:"btn btn-success" %>
+                    <%else%>
+                        <%= link_to 'Completar', todo_update_path(todo), method: :patch, class:"btn btn-danger" %>
+                    <% end%>
+                     
+                </div>
+            </div>
+            <% end%>
+        </div>
+    <% end%>
+</div>
