@@ -10,22 +10,11 @@
   </head>
 
   <body>
-    <nav class="navbar fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-
-    <% if user_signed_in? %>
-     <h3>Tareas completas
-      <%=  @todos_count.to_s + "/" + @task_count.to_s%></h3>
-      <h3 align=right>
-      <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
-      </h3>
-    <% end %>
-    </a>
-    </nav>
+    <%= render 'shared/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div class="container">
+    <div class="container mt-5">
     <%= yield %>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -1,0 +1,13 @@
+<nav class="navbar fixed-top navbar-dark bg-dark mb-5">
+    <a class="navbar-brand" href="#">
+        <% if user_signed_in? %>
+            <h3>Tareas diciocheras completas
+            <%=  @todos_count.to_s + "/" + @task_count.to_s%></h3>
+            <h3 align=right>
+            <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+            </h3>
+        <% else%>
+            <h3>Completa tus tareas diciocheras, no te pierdas la oportunidad de participar!</h3>
+        <% end %>
+    </a>
+</nav>

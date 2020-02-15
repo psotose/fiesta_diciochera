@@ -1,18 +1,15 @@
 <h1 align=center>Tareas diciocheras</h1>
 
-<div class='row row-cols-1 row-cols-md-3 '>
-    <% @tasks.each_slice(3) do |three_task|%>
-        <div class="col mb-4">
-            <% three_task.each do |task| %>
-                <div class="card mb-4" style="width: 18rem">
-                    <%= image_tag  task.picture, class: "card-img-top" %>
-                    <div class="card-body">
-                        <h5 class="card-title"><%= task.name %></h5>
-                        <%= link_to 'Detalle', todos_path %>
-                        <%= link_to  "Completar", todos_path %>
-                    </div>
+<% @tasks.each_slice(3) do |three_task|%>
+    <div class="card-deck">
+        <% three_task.each do |task| %>
+            <div class="card my-2" style="width: 18rem" >
+                <%= image_tag  task.picture, class: "card-img-top" %>
+                <div class="card-body">
+                    <h5 class="card-title"><%= task.name %></h5>
+                    <%= link_to 'Detalle', todos_path, class:"btn btn-info" %>
                 </div>
-             <% end %>
-         </div>
-    <% end %>
-</div>
+            </div>
+         <% end %>
+     </div>
+<% end %>

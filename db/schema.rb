@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_02_14_024537) do
   create_table "todos", force: :cascade do |t|
     t.integer "user_id"
     t.integer "task_id"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["task_id"], name: "index_todos_on_task_id"
